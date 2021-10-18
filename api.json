@@ -1,0 +1,112 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "POS Restful API",
+        "description": "Restful API for web pos and app pos",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3009/api/v1"
+        }
+    ],
+    "paths": {
+        "/user": {
+            "get": {
+                "summary": "Get all user",
+                "description": "Get all user",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {}
+            },
+            "post": {
+                "summary": "Create new user",
+                "description": "Create new user",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/{user_id}": {
+            "get": {
+                "summary": "Get single and detail user",
+                "description": "Get single and detail user",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "description": "public id of user object",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "summary": "Delete a user",
+                "description": "Delete a user",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "description": "public id of user object",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "summary": "Update a user",
+                "description": "Update a user",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "description": "public id of user object",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/outlet/{outlet_id}": {
+            "get": {
+                "summary": "Get user by outlet",
+                "description": "Get list of user have access to outlet",
+                "parameters": [
+                    {
+                        "name": "outlet_id",
+                        "description": "public id of outlet",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
