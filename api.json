@@ -13,6 +13,9 @@
     "paths": {
         "/user": {
             "get": {
+                "tags": [
+                    "user"
+                ],
                 "summary": "Get all user",
                 "description": "Get all user",
                 "security": [
@@ -20,9 +23,52 @@
                         "bearerAuth": []
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "Success fetch list user",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "users": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/user"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
             },
             "post": {
+                "tags": [
+                    "user"
+                ],
                 "summary": "Create new user",
                 "description": "Create new user",
                 "security": [
@@ -30,11 +76,53 @@
                         "bearerAuth": []
                     }
                 ],
-                "responses": {}
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull insert row",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Data created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
             }
         },
-        "/user/{user_id}": {
+        "/user/{user_public_id}": {
             "get": {
+                "tags": [
+                    "user"
+                ],
                 "summary": "Get single and detail user",
                 "description": "Get single and detail user",
                 "security": [
@@ -44,15 +132,73 @@
                 ],
                 "parameters": [
                     {
-                        "name": "user_id",
+                        "name": "user_public_id",
                         "description": "public id of user object",
                         "required": true,
-                        "in": "path"
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "Success fetch list user",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "user": {
+                                                    "type": "object",
+                                                    "$ref": "#/components/schemas/user"
+                                                },
+                                                "outlets": {
+                                                    "description": "Outlets are owned access by user",
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/outlet"
+                                                    }
+                                                },
+                                                "privileges": {
+                                                    "description": "Privileges of access by user",
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/privileges"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
             },
             "delete": {
+                "tags": [
+                    "user"
+                ],
                 "summary": "Delete a user",
                 "description": "Delete a user",
                 "security": [
@@ -62,45 +208,948 @@
                 ],
                 "parameters": [
                     {
-                        "name": "user_id",
+                        "name": "user_public_id",
                         "description": "public id of user object",
                         "required": true,
-                        "in": "path"
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "Delete success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data deleted"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "put": {
+                "tags": [
+                    "user"
+                ],
                 "summary": "Update a user",
                 "description": "Update a user",
                 "parameters": [
                     {
-                        "name": "user_id",
+                        "name": "public_id",
                         "description": "public id of user object",
                         "required": true,
-                        "in": "path"
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
-                "responses": {}
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull update row",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Data updated"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
             }
         },
-        "/user/outlet/{outlet_id}": {
+        "/user/outlet/{outlet_public_id}": {
             "get": {
+                "tags": [
+                    "user"
+                ],
                 "summary": "Get user by outlet",
                 "description": "Get list of user have access to outlet",
                 "parameters": [
                     {
-                        "name": "outlet_id",
+                        "name": "outlet_public_id",
                         "description": "public id of outlet",
                         "required": true,
-                        "in": "path"
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "Success fetch list user",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "users": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/user"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/cat-product": {
+            "get": {
+                "tags": [
+                    "cat-product"
+                ],
+                "summary": "Get all product category",
+                "description": "Get all product category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "catProducts": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/catProduct"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cat-product"
+                ],
+                "summary": "Create product category",
+                "description": "Create product category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/catProduct"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success create category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/cat-product/{public_id}": {
+            "put": {
+                "tags": [
+                    "cat-product"
+                ],
+                "summary": "Update product category",
+                "description": "Create product category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "public_id",
+                        "description": "public id of cat product",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/catProduct"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success Update category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data updated"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cat-product"
+                ],
+                "summary": "Delete product category",
+                "description": "Delete product category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "public_id",
+                        "description": "public id of cat product",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success Update category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data deleted"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/product": {
+            "get": {
+                "tags": [
+                    "productx"
+                ],
+                "summary": "Get all products and variants",
+                "description": "Get all products and variants",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all products and variants",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "products": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/product"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cat-product"
+                ],
+                "summary": "Create product category",
+                "description": "Create product category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/catProduct"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success create category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/product/{public_id}": {
+            "put": {
+                "tags": [
+                    "cat-product"
+                ],
+                "summary": "Update product category",
+                "description": "Create product category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "public_id",
+                        "description": "public id of cat product",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/catProduct"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success Update category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data updated"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cat-product"
+                ],
+                "summary": "Delete product category",
+                "description": "Delete product category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "public_id",
+                        "description": "public id of cat product",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success Update category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data deleted"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
             }
         }
     },
     "components": {
+        "schemas": {
+            "product": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "image": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "category": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/catProduct"
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "example": {
+                    "public_id": "wjd28y-w28728e2-22udij2k282-9912727YYY",
+                    "name": "Kopi Hitam Kupu-Kupu",
+                    "description": "Kopi hitam dengan cita rasa khas bisa melayang seperti kupu-kupu",
+                    "image": "https://linkgambar.com/e67767677e77637e671111",
+                    "category": {
+                        "public_id": "wjd28y-w28728e2-22udij2k282-9912727xx",
+                        "name": "Kategori Kopi"
+                    },
+                    "is_active": true
+                }
+            },
+            "catProduct": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "example": {
+                    "public_id": "wjd28y-w28728e2-22udij2k282-9912727xx",
+                    "name": "Kategori Kopi",
+                    "description": "Kategori kopi-kopi",
+                    "is_active": true
+                }
+            },
+            "role": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Primary key auto increment",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "is_active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "example": {
+                    "id": 2,
+                    "public_id": "wjd28y-w28728e2-22udij2k282-9912727",
+                    "name": "Kasir 1",
+                    "is_active": true
+                }
+            },
+            "menu": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Primary key auto increment",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "type": {
+                        "type": "string",
+                        "nullable": false,
+                        "enum": [
+                            "WEB",
+                            "APP"
+                        ]
+                    },
+                    "order": {
+                        "type": "integer",
+                        "nullable": false
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "sub_menu": {
+                        "type": "array",
+                        "$ref": "#/components/schemas/subMenu"
+                    }
+                },
+                "required": [
+                    "name",
+                    "type",
+                    "order",
+                    "sub_menu"
+                ],
+                "example": {
+                    "id": 2,
+                    "public_id": "wjd28y-w28728e2-22udij2k282-12111",
+                    "name": "Library",
+                    "type": "WEB",
+                    "order": 2,
+                    "is_active": true,
+                    "sub_menu": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/subMenu"
+                        }
+                    }
+                }
+            },
+            "subMenu": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Primary key auto increment",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "menu_id": {
+                        "description": "Parent menu ID",
+                        "type": "integer",
+                        "nullable": false
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "order": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "require_pin": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "required": [
+                    "menu_id",
+                    "name"
+                ],
+                "example": {
+                    "id": 2,
+                    "public_id": "xx12-w28728e2-22udij2k282-12111",
+                    "menu_id": 1,
+                    "name": "Item Product",
+                    "description": "Manage products",
+                    "url": "/dashboard/library/product",
+                    "order": 2,
+                    "require_pin": false,
+                    "is_active": true
+                }
+            },
+            "privileges": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/subMenu"
+                }
+            },
+            "outlet": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Primary key auto increment",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "address": {
+                        "type": "string",
+                        "nullable": false
+                    }
+                },
+                "required": [
+                    "name",
+                    "address"
+                ],
+                "example": {
+                    "id": 2,
+                    "public_id": "wjd28y-w28728e2-22udij2k282-2w726762",
+                    "name": "Outlet 002 - Sby",
+                    "address": "Jl Semolowaru 121 Surabaya"
+                }
+            },
+            "user": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Primary key auto increment",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "username": {
+                        "type": "string",
+                        "minLength": 6,
+                        "nullable": false,
+                        "uniqueItems": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "nullable": true,
+                        "minLength": 8
+                    },
+                    "pin": {
+                        "type": "string",
+                        "description": "numeric string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "uniqueItems": true,
+                        "nullable": false
+                    },
+                    "phone_number": {
+                        "type": "string",
+                        "nullable": false,
+                        "uniqueItems": true
+                    },
+                    "is_active": {
+                        "type": "string",
+                        "default": true
+                    },
+                    "role_id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": false
+                    }
+                },
+                "example": {
+                    "id": 1,
+                    "public_id": "2617617617-qssuh271-hjhjh701",
+                    "username": "also123",
+                    "password": "alsoalso123",
+                    "pin": "991122",
+                    "name": "Ali Shodikin",
+                    "email": "m.alishodikin@gmail.com",
+                    "phone_number": "082245307059",
+                    "is_active": true,
+                    "role_id": 2
+                },
+                "required": [
+                    "username",
+                    "name",
+                    "email",
+                    "phone_number",
+                    "role_id"
+                ]
+            }
+        },
         "securitySchemes": {
             "bearerAuth": {
                 "type": "http",
