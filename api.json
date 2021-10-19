@@ -856,6 +856,21 @@
                     "is_active": true
                 }
             },
+            "variant" :{
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sku": {
+                        "type": "string",
+                        "nullable": false
+                    }
+                    
+                }
+            },
             "catProduct": {
                 "type": "object",
                 "properties": {
@@ -890,11 +905,7 @@
             "role": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "description": "Primary key auto increment",
-                        "type": "integer",
-                        "nullable": true
-                    },
+                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -912,7 +923,7 @@
                     "name"
                 ],
                 "example": {
-                    "id": 2,
+                    
                     "public_id": "wjd28y-w28728e2-22udij2k282-9912727",
                     "name": "Kasir 1",
                     "is_active": true
@@ -921,11 +932,7 @@
             "menu": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "description": "Primary key auto increment",
-                        "type": "integer",
-                        "nullable": true
-                    },
+                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -963,7 +970,7 @@
                     "sub_menu"
                 ],
                 "example": {
-                    "id": 2,
+                    
                     "public_id": "wjd28y-w28728e2-22udij2k282-12111",
                     "name": "Library",
                     "type": "WEB",
@@ -980,11 +987,7 @@
             "subMenu": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "description": "Primary key auto increment",
-                        "type": "integer",
-                        "nullable": true
-                    },
+                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -1025,7 +1028,7 @@
                     "name"
                 ],
                 "example": {
-                    "id": 2,
+                    
                     "public_id": "xx12-w28728e2-22udij2k282-12111",
                     "menu_id": 1,
                     "name": "Item Product",
@@ -1045,11 +1048,7 @@
             "outlet": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "description": "Primary key auto increment",
-                        "type": "integer",
-                        "nullable": true
-                    },
+                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -1069,7 +1068,6 @@
                     "address"
                 ],
                 "example": {
-                    "id": 2,
                     "public_id": "wjd28y-w28728e2-22udij2k282-2w726762",
                     "name": "Outlet 002 - Sby",
                     "address": "Jl Semolowaru 121 Surabaya"
@@ -1078,11 +1076,7 @@
             "user": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "description": "Primary key auto increment",
-                        "type": "integer",
-                        "nullable": true
-                    },
+                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -1130,7 +1124,6 @@
                     }
                 },
                 "example": {
-                    "id": 1,
                     "public_id": "2617617617-qssuh271-hjhjh701",
                     "username": "also123",
                     "password": "alsoalso123",
