@@ -55,13 +55,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -107,13 +158,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -185,13 +287,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -287,13 +440,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -348,13 +552,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -403,13 +658,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -455,13 +761,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -520,13 +877,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -573,13 +981,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -587,10 +1046,10 @@
         "/product": {
             "get": {
                 "tags": [
-                    "productx"
+                    "product"
                 ],
-                "summary": "Get all products and variants",
-                "description": "Get all products and variants",
+                "summary": "Get all products and variants and prices",
+                "description": "Get all products and variants and prices",
                 "security": [
                     {
                         "bearerAuth": []
@@ -628,22 +1087,73 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
             "post": {
                 "tags": [
-                    "cat-product"
+                    "product"
                 ],
-                "summary": "Create product category",
-                "description": "Create product category",
+                "summary": "Create product, variants, and prices",
+                "description": "Create product, variants, and prices",
                 "security": [
                     {
                         "bearerAuth": []
@@ -654,14 +1164,14 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/catProduct"
+                                "$ref": "#/components/schemas/product"
                             }
                         }
                     }
                 },
                 "responses": {
                     "201": {
-                        "description": "Success create category",
+                        "description": "Success product created",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -680,13 +1190,64 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -694,10 +1255,10 @@
         "/product/{public_id}": {
             "put": {
                 "tags": [
-                    "cat-product"
+                    "product"
                 ],
-                "summary": "Update product category",
-                "description": "Create product category",
+                "summary": "Update product, variants, and prices",
+                "description": "Create product, variants, and prices",
                 "security": [
                     {
                         "bearerAuth": []
@@ -706,7 +1267,7 @@
                 "parameters": [
                     {
                         "name": "public_id",
-                        "description": "public id of cat product",
+                        "description": "public id of product",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -719,14 +1280,14 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/catProduct"
+                                "$ref": "#/components/schemas/product"
                             }
                         }
                     }
                 },
                 "responses": {
                     "201": {
-                        "description": "Success Update category",
+                        "description": "Success Update product",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -745,22 +1306,73 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
             "delete": {
                 "tags": [
-                    "cat-product"
+                    "product"
                 ],
-                "summary": "Delete product category",
-                "description": "Delete product category",
+                "summary": "Delete product",
+                "description": "Delete product",
                 "security": [
                     {
                         "bearerAuth": []
@@ -769,7 +1381,7 @@
                 "parameters": [
                     {
                         "name": "public_id",
-                        "description": "public id of cat product",
+                        "description": "public id of product",
                         "required": true,
                         "in": "path",
                         "schema": {
@@ -779,7 +1391,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Success Update category",
+                        "description": "Success delete category",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -798,13 +1410,1535 @@
                         }
                     },
                     "401": {
-                        "description": "UnAuthorized"
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Bad request"
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Server error"
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product-image": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Upload image for product",
+                "description": "Upload image for product, response dari upload berupa filename gambar yang akan digunakan form create/update produk",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "image/png": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success uploaded",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data created"
+                                        },
+                                        "data": {
+                                            "description": "filename dari gambar",
+                                            "type": "string",
+                                            "example": "12938876176716771.jpg"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product-image/{file_name}": {
+            "delete": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Delete product image",
+                "description": "Deleting product image, digunakan saat akan mengubah gambar atau menghapus gambar di form create/update product",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "file_name",
+                        "description": "file_nae gambar",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "12938876176716771.jpg"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data deleted"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ingredient": {
+            "get": {
+                "tags": [
+                    "ingredient"
+                ],
+                "summary": "Get all ingredients with curret summary stock",
+                "description": "Get all ingredients with curret summary stock",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all ingredient and stock",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "ingredient": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/ingredient"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ingredient"
+                ],
+                "summary": "Create new Ingredient",
+                "description": "Create new Ingredient",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/ingredient"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success ingredient created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ingredient/{public_id}": {
+            "put": {
+                "tags": [
+                    "ingredient"
+                ],
+                "summary": "Update ingredient",
+                "description": "Create ingredient",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "public_id",
+                        "description": "public id of ingredient",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/ingredient"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success Update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data updated"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ingredient"
+                ],
+                "summary": "Delete ingredient",
+                "description": "Delete ingredient",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "public_id",
+                        "description": "public id of ingredient",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success delete ingredient",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data deleted"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/recipe": {
+            "get": {
+                "tags": [
+                    "recipe"
+                ],
+                "summary": "Get all recipe",
+                "description": "Get all recipe",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all recipe",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "recipes": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/recipe"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "recipe"
+                ],
+                "summary": "Create new recipe, or update item recipe, or delete item recipe",
+                "description": "Create new recipe, or update item recipe, or delete item recipe",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/recipe"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/outlet": {
+            "get": {
+                "tags": [
+                    "outlet"
+                ],
+                "summary": "Get all outlet",
+                "description": "Get all outlet",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all outlet",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "outlets": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/outlet"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "outlet"
+                ],
+                "summary": "Create new outlet",
+                "description": "Create new outlet",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/outlet"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/outlet/{public_id}": {
+            "put": {
+                "tags": [
+                    "outlet"
+                ],
+                "summary": "Update outlet",
+                "description": "Update outlet",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/outlet"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data updated"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "outlet"
+                ],
+                "summary": "delete outlet",
+                "description": "Update outlet",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data deleted"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sale": {
+            "get": {
+                "tags": [
+                    "sale"
+                ],
+                "summary": "Get all sale",
+                "description": "Get all sale",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all sale",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "outlets": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/sale"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "outlet"
+                ],
+                "summary": "Create new outlet",
+                "description": "Create new outlet",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/sale"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data created"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -812,6 +2946,321 @@
     },
     "components": {
         "schemas": {
+            "sale": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "no": {
+                        "description": "uniq number of sale, generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "user_id": {
+                        "description": "public_id of user",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "shift_id": {
+                        "description": "public_id of shift",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "customer_id": {
+                        "description": "public_id of customer, boleh diisi null",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "customer": {
+                        "description": "name of customer, bisa dari schema customer atau input manual atau null",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "outlet_id": {
+                        "description": "public_id of outlet",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "sale_type": {
+                        "type": "string",
+                        "enum": [
+                            "dine in",
+                            "take away",
+                            "online"
+                        ],
+                        "nullable": false
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "pending",
+                            "paid"
+                        ]
+                    },
+                    "sale_items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/sale_item"
+                        }
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                }
+            },
+            "sale_item": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sale_id": {
+                        "description": "public_id of sale",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "variant_id": {
+                        "description": "public_id of sale",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "sku": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "product": {
+                        "description": "name of product + variant name",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "qty": {
+                        "type": "integer",
+                        "nullable": false
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "nullable": false
+                    }
+                }
+            },
+            "recipe": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "description": "public_id of product",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "product": {
+                        "description": "name of product",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "variants": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "variant_id",
+                                "ingredients"
+                            ],
+                            "properties": {
+                                "variant_id": {
+                                    "description": "public_id of variant",
+                                    "type": "string",
+                                    "nullable": false
+                                },
+                                "variant": {
+                                    "description": "name of variant",
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "ingredients": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "inggredient_id",
+                                            "qty"
+                                        ],
+                                        "properties": {
+                                            "public_id": {
+                                                "description": "UUID generated",
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "inggredient_id": {
+                                                "description": "public_id of ingredient",
+                                                "type": "string",
+                                                "nullable": false
+                                            },
+                                            "ingredient": {
+                                                "type": "string",
+                                                "nullable": false,
+                                                "description": "name of ingredient"
+                                            },
+                                            "qty": {
+                                                "type": "integer",
+                                                "nullable": false
+                                            },
+                                            "is_active": {
+                                                "type": "boolean",
+                                                "default": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "variants"
+                ],
+                "example": {
+                    "product_id": "17675w-188-w8w78uuuu8111",
+                    "product": "Kopi hitam kupu-kupu",
+                    "variants": [
+                        {
+                            "variant_id": "17675w-188-w8w78uuuuXXwww1111",
+                            "variant": "Gula aren",
+                            "ingredients": [
+                                {
+                                    "public_id": "12o9j-jhjjhj-1u887-jnjnjn11-11",
+                                    "inggredient_id": "12o9j-jhjjhj-1u887-jnjnjn11-1118xx",
+                                    "ingredient": "Gula aren",
+                                    "qty": 200,
+                                    "is_active": true
+                                },
+                                {
+                                    "public_id": "12o9j-jhjjhj-1u887-jnjnjn11-XX",
+                                    "inggredient_id": "12o9j-jhjjhj-1u887-jnjnjn11-1118AA",
+                                    "ingredient": "Kopi bubuk",
+                                    "qty": 250,
+                                    "is_active": true
+                                }
+                            ]
+                        },
+                        {
+                            "variant_id": "17675w-188-w8w78uuuuXXwww1111",
+                            "variant": "Gula pasir",
+                            "ingredients": [
+                                {
+                                    "public_id": "12o9j-jhjjhj-1u887-jnjnjn11-11",
+                                    "inggredient_id": "12o9j-jhjjhj-1u887-jnjnjn11-1118xx",
+                                    "ingredient": "Gula pasir",
+                                    "qty": 200,
+                                    "is_active": true
+                                },
+                                {
+                                    "public_id": "12o9j-jhjjhj-1u887-jnjnjn11-XX",
+                                    "inggredient_id": "12o9j-jhjjhj-1u887-jnjnjn11-1118AA",
+                                    "ingredient": "Kopi bubuk",
+                                    "qty": 250,
+                                    "is_active": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "unit": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "example": {
+                    "name": "gram",
+                    "description": "gram",
+                    "is_active": true
+                }
+            },
+            "ingredient": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "unit": {
+                        "type": "string",
+                        "nullable": false,
+                        "description": "value dari schema unit name"
+                    },
+                    "cost": {
+                        "type": "number",
+                        "format": "float",
+                        "default": 0.00
+                    },
+                    "stockInfo": {
+                        "description": "hanya untuk endpoint /ingredient dengan method get. method post, put tidak diisi (null)",
+                        "nullable": true,
+                        "type": "object",
+                        "properties": {
+                            "stock": {
+                                "type": "integer",
+                                "nullable": false
+                            },
+                            "min_stock": {
+                                "type": "integer",
+                                "nullable": true,
+                                "default": null
+                            }
+                        }
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "unit"
+                ],
+                "example": {
+                    "public_id": "1766-187ybhy-1hjjg7-111",
+                    "name": "Gula pasir",
+                    "unit": "gram",
+                    "cost": 200.00,
+                    "stockInfo": {
+                        "stock": 500,
+                        "min_stock": 100
+                    },
+                    "is_active": true
+                }
+            },
             "product": {
                 "type": "object",
                 "properties": {
@@ -839,10 +3288,15 @@
                     "category": {
                         "type": "object",
                         "$ref": "#/components/schemas/catProduct"
+                    },
+                    "variants": {
+                        "type": "array",
+                        "$ref": "#/components/schemas/variant"
                     }
                 },
                 "required": [
-                    "name"
+                    "name",
+                    "category"
                 ],
                 "example": {
                     "public_id": "wjd28y-w28728e2-22udij2k282-9912727YYY",
@@ -853,10 +3307,64 @@
                         "public_id": "wjd28y-w28728e2-22udij2k282-9912727xx",
                         "name": "Kategori Kopi"
                     },
+                    "variants": [
+                        {
+                            "public_id": "1654345678-1wg1hwghs80-xx7671w0-11ce",
+                            "sku": "CC00001",
+                            "name": "Small With Aren Sugar",
+                            "cost": 8900.00,
+                            "prices": [
+                                {
+                                    "public_id": "134567-1bhbh67-1yuh7-11jh",
+                                    "sale_type": "dine in",
+                                    "price": 19000.00,
+                                    "is_active": true
+                                },
+                                {
+                                    "public_id": "134567-1bhbh67-1yuh7-11jh",
+                                    "sale_type": "take away",
+                                    "price": 20000.00,
+                                    "is_active": true
+                                },
+                                {
+                                    "public_id": "134567-1bhbh67-1yuh7-11jh",
+                                    "sale_type": "online",
+                                    "price": 22000.00,
+                                    "is_active": true
+                                }
+                            ]
+                        },
+                        {
+                            "public_id": "1654345678-1wg1hwghs80-xx7671w0-11ce",
+                            "sku": "CC00002",
+                            "name": "Small Without Sugar",
+                            "cost": 8900.00,
+                            "prices": [
+                                {
+                                    "public_id": "134567-1bhbh67-1yuh7-11jh1",
+                                    "sale_type": "dine in",
+                                    "price": 17000.00,
+                                    "is_active": true
+                                },
+                                {
+                                    "public_id": "134567-1bhbh67-1yuh7-11jh2",
+                                    "sale_type": "take away",
+                                    "price": 18000.00,
+                                    "is_active": true
+                                },
+                                {
+                                    "public_id": "134567-1bhbh67-1yuh7-11jh3",
+                                    "sale_type": "online",
+                                    "price": 20000.00,
+                                    "is_active": true
+                                }
+                            ]
+                        }
+                    ],
                     "is_active": true
                 }
             },
-            "variant" :{
+            "variant": {
                 "type": "object",
                 "properties": {
                     "public_id": {
@@ -867,8 +3375,96 @@
                     "sku": {
                         "type": "string",
                         "nullable": false
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "cost": {
+                        "type": "number",
+                        "format": "float",
+                        "nullable": true,
+                        "default": 0
+                    },
+                    "prices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/price"
+                        }
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
                     }
-                    
+                },
+                "required": [
+                    "sku",
+                    "name",
+                    "prices"
+                ],
+                "example": {
+                    "public_id": "1654345678-1wg1hwghs80-xx7671w0-11ce",
+                    "sku": "CC00001",
+                    "name": "Small With Aren Sugar",
+                    "cost": 8900.00,
+                    "prices": [
+                        {
+                            "public_id": "134567-1bhbh67-1yuh7-11jh",
+                            "sale_type": "dine in",
+                            "price": 19000.00,
+                            "is_active": true
+                        },
+                        {
+                            "public_id": "134567-1bhbh67-1yuh7-11jh",
+                            "sale_type": "take away",
+                            "price": 20000.00,
+                            "is_active": true
+                        },
+                        {
+                            "public_id": "134567-1bhbh67-1yuh7-11jh",
+                            "sale_type": "online",
+                            "price": 22000.00,
+                            "is_active": true
+                        }
+                    ]
+                }
+            },
+            "price": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sale_type": {
+                        "type": "string",
+                        "enum": [
+                            "dine in",
+                            "take away",
+                            "online"
+                        ],
+                        "nullable": false
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "nullable": false
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "required": [
+                    "sale_type",
+                    "price"
+                ],
+                "example": {
+                    "public_id": "134567-1bhbh67-1yuh7-11jh",
+                    "sale_type": "dine in",
+                    "price": 19000,
+                    "is_active": true
                 }
             },
             "catProduct": {
@@ -905,7 +3501,6 @@
             "role": {
                 "type": "object",
                 "properties": {
-                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -923,7 +3518,6 @@
                     "name"
                 ],
                 "example": {
-                    
                     "public_id": "wjd28y-w28728e2-22udij2k282-9912727",
                     "name": "Kasir 1",
                     "is_active": true
@@ -932,7 +3526,6 @@
             "menu": {
                 "type": "object",
                 "properties": {
-                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -970,7 +3563,6 @@
                     "sub_menu"
                 ],
                 "example": {
-                    
                     "public_id": "wjd28y-w28728e2-22udij2k282-12111",
                     "name": "Library",
                     "type": "WEB",
@@ -987,7 +3579,6 @@
             "subMenu": {
                 "type": "object",
                 "properties": {
-                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -1028,7 +3619,6 @@
                     "name"
                 ],
                 "example": {
-                    
                     "public_id": "xx12-w28728e2-22udij2k282-12111",
                     "menu_id": 1,
                     "name": "Item Product",
@@ -1048,7 +3638,6 @@
             "outlet": {
                 "type": "object",
                 "properties": {
-                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
@@ -1076,7 +3665,6 @@
             "user": {
                 "type": "object",
                 "properties": {
-                    
                     "public_id": {
                         "description": "UUID generated",
                         "type": "string",
