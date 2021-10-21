@@ -8,7 +8,9 @@ const compression = require('compression');
 const swagger = require('swagger-ui-express');
 const docs = require('./api.json');
 // const { GALLERY_DIR } = require('./settings');
-// const seeder = require('./seeders/manager');
+const seederUser = require('./seeders/user.seeder');
+const seederOutlet = require('./seeders/outlet.seeder');
+const seederMenu = require('./seeders/menu.seeder');
 // const scheduler = require('./scheduler')
 
 const app = express();
@@ -25,22 +27,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(GALLERY_DIR, express.static(path.join(__dirname, GALLERY_DIR)));
 
-// only on developent development
-// db.sequelize
-//     .sync({ force: process.env.NODE_ENV !== 'production' ? true : false })
-//     .then(() => {
-//         console.log('Drop and re-sync db.');
-//         // if (process.env.NODE_ENV !== 'production') {
-//         //     (async () => {
-//         //         try {
-//         //             const user = await seeder.createUserWithRoleManager();
-//         //             console.log(user);
-//         //         } catch (err) {
-//         //             console.log(err);
-//         //         }
-//         //     })();
-//         // }
-//     });
+//only on developent development
+db.sequelize
+    .sync({ force: process.env.NODE_ENV !== 'production' ? true : false })
+    .then(() => {
+        console.log('Drop and re-sync db.');
+        if (process.env.NODE_ENV !== 'production') {
+            (async () => {
+                try {
+                    const user = await seederUser.createSuperUser();
+                    const outlet = await seederOutlet.createOutlet();
+                    const menus = await seederMenu.createMenu();
+
+                    if (user && outlet) {
+                        await seederOutlet.createOutletUser(outlet.id, user.id);
+                    }
+                    console.log("menusyayay", menus);
+                    if (menus && user) {
+                        await seederMenu.createRoleAccess(user.role_id, menus);
+                    }
+
+                    // console.log(menus);
+                } catch (err) {
+                    console.log(err);
+                }
+            })();
+        }
+    });
 
 if (process.env.NODE_ENV !== 'production') {
     app.use('/api-docs', swagger.serve, swagger.setup(docs));

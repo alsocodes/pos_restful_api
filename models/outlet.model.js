@@ -1,6 +1,6 @@
-const Menu = (sequelize, Sequelize) =>
+const Outlet = (sequelize, Sequelize) =>
     sequelize.define(
-        'menus',
+        'outlets',
         {
             id: {
                 type: Sequelize.INTEGER,
@@ -16,28 +16,16 @@ const Menu = (sequelize, Sequelize) =>
             name: {
                 type: Sequelize.STRING,
                 allowNull: false,
-                unique: true,
             },
-
-            type: {
-                type: Sequelize.ENUM("WEB", "APP"),
-                allowNull: false,
-            },
-
-            order: {
-                type: Sequelize.INTEGER,
-                allowNull: false
+            address: {
+                type: Sequelize.STRING,
             },
 
             is_active: {
                 type: Sequelize.BOOLEAN,
-                defaultValue: true
+                defaultValue: true,
             },
-        },
-        {
-            sequelize,
-            modelName: 'sub_menus',
         },
     )
 
-module.exports = Menu
+module.exports = Outlet

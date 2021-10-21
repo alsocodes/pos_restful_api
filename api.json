@@ -3670,12 +3670,6 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "username": {
-                        "type": "string",
-                        "minLength": 6,
-                        "nullable": false,
-                        "uniqueItems": true
-                    },
                     "password": {
                         "type": "string",
                         "nullable": true,
@@ -3713,7 +3707,6 @@
                 },
                 "example": {
                     "public_id": "2617617617-qssuh271-hjhjh701",
-                    "username": "also123",
                     "password": "alsoalso123",
                     "pin": "991122",
                     "name": "Ali Shodikin",

@@ -47,10 +47,15 @@ db.role = require('./role.model.js')(sequelize, Sequelize);
 db.menu = require('./menu.model.js')(sequelize, Sequelize);
 db.sub_menu = require('./sub_menu.model.js')(sequelize, Sequelize);
 db.role_access = require('./role_access.model.js')(sequelize, Sequelize);
+db.outlet = require('./outlet.model.js')(sequelize, Sequelize);
+db.outlet_user = require('./outlet_user.model.js')(sequelize, Sequelize);
 
 db.user.belongsTo(db.role, { foreignKey: 'role_id' });
 db.menu.hasMany(db.sub_menu, { foreignKey: 'menu_id' });
 db.sub_menu.hasMany(db.role_access, { foreignKey: 'sub_menu_id' });
 db.role.hasMany(db.role_access, { foreignKey: 'role_id' });
+
+db.user.hasMany(db.outlet_user, { foreignKey: 'user_id' });
+db.outlet.hasMany(db.outlet_user, { foreignKey: 'outlet_id' });
 
 module.exports = db;

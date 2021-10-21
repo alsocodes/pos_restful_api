@@ -1,0 +1,6 @@
+AUTH FLOW
+- field yang dipakai login email/telp dan password?
+- forgot password -> email
+- ada menu pendaftaran? daftar user? daftar usaha?
+- custom item apakah berhubungan dengan stok bahan? ex: extra gula, extra toping x, dll.
+- 
