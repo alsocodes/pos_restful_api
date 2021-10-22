@@ -7,10 +7,269 @@
     },
     "servers": [
         {
-            "url": "http://localhost:3009/api/v1"
+            "url": "http://localhost:3009"
         }
     ],
     "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Auth login",
+                "description": "Auth login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/authLogin"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull login",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Login success"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "1788fghjkj==21u71-1io!-o/1i12819891ujsq==2w1==mxskxwchwchw-diw9djwkwd281---11w1we202e02%%111nxjhwj"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/shift": {
+            "post": {
+                "tags": [
+                    "shift"
+                ],
+                "summary": "Create Shift to start pos saling",
+                "description": "Create Shift to start pos saling",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/shift"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfull create shift",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Create shift success"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/shift"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/shift/current/{outlet_id}": {
+            "get": {
+                "tags": [
+                    "shift"
+                ],
+                "summary": "Get current shift",
+                "description": "Get current running shift on outlet",
+                "parameters": [
+                    {
+                        "name": "outlet_id",
+                        "description": "public id of outlet",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2f1f1987-b4c3-4a81-b58f-da54e4171ee5"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull get shift",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Get shift success"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/shift"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/user": {
             "get": {
                 "tags": [
@@ -38,7 +297,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "users": {
@@ -258,7 +517,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "user": {
@@ -535,7 +794,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "users": {
@@ -641,7 +900,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "catProducts": {
@@ -1070,7 +1329,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "products": {
@@ -1509,7 +1768,7 @@
                                             "type": "string",
                                             "example": "data created"
                                         },
-                                        "data": {
+                                        "result": {
                                             "description": "filename dari gambar",
                                             "type": "string",
                                             "example": "12938876176716771.jpg"
@@ -1716,7 +1975,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "ingredient": {
@@ -2145,7 +2404,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "recipes": {
@@ -2354,7 +2613,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "outlets": {
@@ -2761,7 +3020,7 @@
                                             "type": "string",
                                             "example": "data success"
                                         },
-                                        "data": {
+                                        "result": {
                                             "type": "object",
                                             "properties": {
                                                 "outlets": {
@@ -2946,6 +3205,101 @@
     },
     "components": {
         "schemas": {
+            "shift": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "UUID generated",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "outlet_id": {
+                        "description": "public_id of outlet",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "user_id": {
+                        "description": "public_id of user",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": false
+                    },
+                    "end_time": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "init_cash": {
+                        "type": "number",
+                        "format": "float",
+                        "nullable": false
+                    },
+                    "sys_cash": {
+                        "type": "number",
+                        "format": "float",
+                        "nullable": true
+                    },
+                    "real_cash": {
+                        "type": "number",
+                        "format": "float",
+                        "nullable": true
+                    },
+                    "diff_cash": {
+                        "type": "number",
+                        "format": "float",
+                        "nullable": true
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "example": {
+                    "outlet_id": "2f1f1987-b4c3-4a81-b58f-da54e4171ee5",
+                    "user_id": "6572c8ed-4f1f-40ee-84b1-d5be29ebec9b",
+                    "start_time": "2021-10-22 09:44:20.281+07",
+                    "end_time": "2021-10-22 20:44:20.281+07",
+                    "init_cash": 120000.0,
+                    "sys_cash": 120000.0,
+                    "real_cash": 75000.0,
+                    "diff_cash": 45000.0
+                }
+            },
+            "authLogin": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Email or Phone number",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "password": {
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "from": {
+                        "type": "string",
+                        "enum": [
+                            "APP",
+                            "WEB"
+                        ]
+                    }
+                },
+                "required": [
+                    "email",
+                    "password",
+                    "type"
+                ],
+                "example": {
+                    "email": "alsocodes@gmail.com",
+                    "password": "123456",
+                    "from": "APP"
+                }
+            },
             "sale": {
                 "type": "object",
                 "properties": {

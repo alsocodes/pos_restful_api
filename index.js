@@ -11,6 +11,7 @@ const docs = require('./api.json');
 const seederUser = require('./seeders/user.seeder');
 const seederOutlet = require('./seeders/outlet.seeder');
 const seederMenu = require('./seeders/menu.seeder');
+const seederOption = require('./seeders/general_option.seeder');
 // const scheduler = require('./scheduler')
 
 const app = express();
@@ -28,32 +29,33 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(GALLERY_DIR, express.static(path.join(__dirname, GALLERY_DIR)));
 
 //only on developent development
-db.sequelize
-    .sync({ force: process.env.NODE_ENV !== 'production' ? true : false })
-    .then(() => {
-        console.log('Drop and re-sync db.');
-        if (process.env.NODE_ENV !== 'production') {
-            (async () => {
-                try {
-                    const user = await seederUser.createSuperUser();
-                    const outlet = await seederOutlet.createOutlet();
-                    const menus = await seederMenu.createMenu();
+// db.sequelize
+//     .sync({ force: process.env.NODE_ENV !== 'production' ? true : false })
+//     .then(() => {
+//         console.log('Drop and re-sync db.');
+//         if (process.env.NODE_ENV !== 'production') {
+//             (async () => {
+//                 try {
+//                     const user = await seederUser.createSuperUser();
+//                     const outlet = await seederOutlet.createOutlet();
+//                     const menus = await seederMenu.createMenu();
 
-                    if (user && outlet) {
-                        await seederOutlet.createOutletUser(outlet.id, user.id);
-                    }
-                    console.log("menusyayay", menus);
-                    if (menus && user) {
-                        await seederMenu.createRoleAccess(user.role_id, menus);
-                    }
+//                     if (user && outlet) {
+//                         await seederOutlet.createOutletUser(outlet.id, user.id);
+//                     }
 
-                    // console.log(menus);
-                } catch (err) {
-                    console.log(err);
-                }
-            })();
-        }
-    });
+//                     if (menus && user) {
+//                         await seederMenu.createRoleAccess(user.role_id, menus);
+//                     }
+
+//                     await seederOption.initOption();
+//                     // console.log(menus);
+//                 } catch (err) {
+//                     console.log(err);
+//                 }
+//             })();
+//         }
+//     });
 
 if (process.env.NODE_ENV !== 'production') {
     app.use('/api-docs', swagger.serve, swagger.setup(docs));
@@ -63,13 +65,15 @@ app.get('/', (_, res) => {
     res.send({ message: 'ok' });
 });
 
+// require("./routes/index.js")(app);
+
 // routes.role(app);
 // routes.user(app);
 // routes.dashboard(app);
 // routes.customer(app);
 // routes.installmentHistory(app);
-// routes.customerLoan(app);
-// routes.auth(app);
+routes.shift(app);
+routes.auth(app);
 // routes.gallery(app, __dirname);
 
 const port = process.env.PORT || 3001;
