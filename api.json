@@ -11,7 +11,7 @@
         }
     ],
     "paths": {
-        "/auth/login": {
+        "/login": {
             "post": {
                 "tags": [
                     "auth"
@@ -49,6 +49,46 @@
                                                 "token": {
                                                     "type": "string",
                                                     "example": "1788fghjkj==21u71-1io!-o/1i12819891ujsq==2w1==mxskxwchwchw-diw9djwkwd281---11w1we202e02%%111nxjhwj"
+                                                },
+                                                "user": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "public_id": {
+                                                            "type": "string",
+                                                            "example": "2617617617-qssuh271-hjhjh701"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "Ali Shodikin"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "m.alishodikin@gmail.com"
+                                                        },
+                                                        "phone_number": {
+                                                            "type": "string",
+                                                            "example": "082245307059"
+                                                        },
+                                                        "role_id": {
+                                                            "description": "public_id of role",
+                                                            "type": "string",
+                                                            "example": "176578798w90w9101901w901w-q1wu19wu19u1"
+                                                        },
+                                                        "outlets": {
+                                                            "description": "Outlets are owned access by user",
+                                                            "type": "array",
+                                                            "items": {
+                                                                "$ref": "#/components/schemas/outlet"
+                                                            }
+                                                        },
+                                                        "privileges": {
+                                                            "description": "Privileges of access by user",
+                                                            "type": "array",
+                                                            "items": {
+                                                                "$ref": "#/components/schemas/privileges"
+                                                            }
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -100,6 +140,7 @@
                 }
             }
         },
+        "/forgot-password": {},
         "/shift": {
             "post": {
                 "tags": [
@@ -268,7 +309,8 @@
                         }
                     }
                 }
-            }
+            },
+            "put": {}
         },
         "/user": {
             "get": {
