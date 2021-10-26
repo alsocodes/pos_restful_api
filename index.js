@@ -29,33 +29,34 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(GALLERY_DIR, express.static(path.join(__dirname, GALLERY_DIR)));
 
 //only on developent development
-// db.sequelize
-//     .sync({ force: process.env.NODE_ENV !== 'production' ? true : false })
-//     .then(() => {
-//         console.log('Drop and re-sync db.');
-//         if (process.env.NODE_ENV !== 'production') {
-//             (async () => {
-//                 try {
-//                     const user = await seederUser.createSuperUser();
-//                     const outlet = await seederOutlet.createOutlet();
-//                     const menus = await seederMenu.createMenu();
+db.sequelize
+    .sync({ force: process.env.NODE_ENV !== 'production' ? true : false })
+    .then(() => {
+        console.log('Drop and re-sync db.');
+        if (process.env.NODE_ENV !== 'production') {
+            (async () => {
+                try {
+                    const user = await seederUser.createSuperUser();
+                    const outlet = await seederOutlet.createOutlet();
+                    const menus = await seederMenu.createMenu();
 
-//                     if (user && outlet) {
-//                         await seederOutlet.createOutletUser(outlet.id, user.id);
-//                     }
+                    if (user && outlet) {
+                        await seederOutlet.createOutletUser(outlet.id, user.id);
+                    }
 
-//                     if (menus && user) {
-//                         await seederMenu.createRoleAccess(user.role_id, menus);
-//                     }
+                    console.log("res menu accesss", menus)
+                    if (menus.accesses.length > 0 && user) {
+                        await seederMenu.createRoleAccess(user.role_id, menus.accesses);
+                    }
 
-//                     await seederOption.initOption();
-//                     // console.log(menus);
-//                 } catch (err) {
-//                     console.log(err);
-//                 }
-//             })();
-//         }
-//     });
+                    await seederOption.initOption();
+                    // console.log(menus);
+                } catch (err) {
+                    console.log(err);
+                }
+            })();
+        }
+    });
 
 if (process.env.NODE_ENV !== 'production') {
     app.use('/api-docs', swagger.serve, swagger.setup(docs));

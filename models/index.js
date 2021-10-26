@@ -46,20 +46,30 @@ db.user = require('./user.model.js')(sequelize, Sequelize);
 db.role = require('./role.model.js')(sequelize, Sequelize);
 db.menu = require('./menu.model.js')(sequelize, Sequelize);
 db.sub_menu = require('./sub_menu.model.js')(sequelize, Sequelize);
+db.access = require('./access.model.js')(sequelize, Sequelize);
 db.role_access = require('./role_access.model.js')(sequelize, Sequelize);
+
 db.outlet = require('./outlet.model.js')(sequelize, Sequelize);
 db.outlet_user = require('./outlet_user.model.js')(sequelize, Sequelize);
 db.general_option = require('./general_option.model.js')(sequelize, Sequelize);
 db.shift = require('./shift.model.js')(sequelize, Sequelize);
+db.token = require('./token.model.js')(sequelize, Sequelize);
 
 db.user.belongsTo(db.role, { foreignKey: 'role_id' });
 db.menu.hasMany(db.sub_menu, { foreignKey: 'menu_id' });
-db.sub_menu.hasMany(db.role_access, { foreignKey: 'sub_menu_id' });
+db.sub_menu.belongsTo(db.menu, { foreignKey: 'menu_id' });
+db.sub_menu.hasMany(db.access, { foreignKey: 'sub_menu_id' });
+db.access.belongsTo(db.sub_menu, { foreignKey: 'sub_menu_id' });
 db.role.hasMany(db.role_access, { foreignKey: 'role_id' });
+db.access.hasMany(db.role_access, { foreignKey: 'access_id' });
 
 db.user.hasMany(db.outlet_user, { foreignKey: 'user_id' });
 db.outlet.hasMany(db.outlet_user, { foreignKey: 'outlet_id' });
+db.outlet_user.belongsTo(db.outlet, { foreignKey: 'outlet_id' })
 db.outlet.hasMany(db.shift, { foreignKey: 'outlet_id' });
 db.user.hasMany(db.shift, { foreignKey: 'user_id' });
+
+db.user.hasMany(db.token, { foreignKey: 'user_id' });
+db.token.belongsTo(db.user, { foreignKey: 'user_id' });
 
 module.exports = db;

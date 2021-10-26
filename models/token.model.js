@@ -1,6 +1,6 @@
-const Sub_Menu = (sequelize, Sequelize) =>
+const Token = (sequelize, Sequelize) =>
     sequelize.define(
-        'sub_menus',
+        'tokens',
         {
             id: {
                 type: Sequelize.INTEGER,
@@ -13,38 +13,31 @@ const Sub_Menu = (sequelize, Sequelize) =>
                 defaultValue: Sequelize.UUIDV4,
                 allowNull: false,
             },
-            menu_id: {
+
+            user_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },
-
-            name: {
+            token: {
                 type: Sequelize.STRING,
-                allowNull: false,
-                unique: true,
-            },
-            description: {
-                type: Sequelize.STRING,
-            },
-
-            url: {
-                type: Sequelize.STRING,
-            },
-
-            order: {
-                type: Sequelize.INTEGER,
                 allowNull: false
+            },
+            type: {
+                type: Sequelize.ENUM("forgot-password", "authorization"),
+            },
+            expire_at: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                // defaultValue: sequelize.literal('NOW() + INTERVAL 1 hour'),
+                //defaultValue: new Date((new Date()).getTime() + 3600000)
             },
 
             is_active: {
                 type: Sequelize.BOOLEAN,
-                defaultValue: true
+                defaultValue: true,
             },
-        },
-        {
-            sequelize,
-            modelName: 'menus',
+
         },
     )
 
-module.exports = Sub_Menu
+module.exports = Token

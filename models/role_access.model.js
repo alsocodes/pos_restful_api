@@ -17,7 +17,7 @@ const Role_Access = (sequelize, Sequelize) =>
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },
-            sub_menu_id: {
+            access_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },

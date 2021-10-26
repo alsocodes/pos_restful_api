@@ -3,6 +3,8 @@ const crypto = require('crypto');
 const db = require('../../models');
 const mailSender = require('../../utils/mailSender');
 const response = require('../../utils/response');
+const { Op } = require("sequelize");
+const { devNull } = require('os');
 
 exports.forgotPassword = async (req, res) => {
   try {
@@ -14,58 +16,78 @@ exports.forgotPassword = async (req, res) => {
       },
     });
     if (!user) {
-      user = await db.customer.findOne({
-        where: {
-          email: email,
-        },
-      });
-      if (!user) {
-        return response.error('User does not exist', res);
+      return response.invalidInput('User does not exist', res);
+    }
+
+    // const token = crypto.randomBytes(32).toString('hex');
+
+    let checkToken = await db.token.findOne({
+      where: {
+        [Op.and]: [
+          { user_id: user.id },
+          {
+            [Op.or]:
+              [
+                { is_active: true },
+                db.sequelize.where(db.sequelize.fn('date', db.sequelize.col('expire_at')), '<', db.sequelize.literal('CURRENT_TIMESTAMP')),
+              ]
+          }
+        ]
       }
+    })
+    if (!checkToken) {
+      let newToken = await db.token.create({
+
+      })
     }
+    //console.log(checkToken)
 
-    const data = await db.sequelize.transaction(async (t) => {
-      const token = await db.token.findOne(
-        {
-          where: { user_id: user.public_id },
-        },
-        { transaction: t }
-      );
+    // const hash = await bcrypt.hash(resetToken, 10);
 
-      if (token)
-        await db.token.destroy({ where: { id: token.id } }, { transaction: t });
+    // const data = await db.sequelize.transaction(async (t) => {
+    //   const token = await db.token.findOne(
+    //     {
+    //       where: { user_id: user.public_id },
+    //     },
+    //     { transaction: t }
+    //   );
 
-      const resetToken = crypto.randomBytes(32).toString('hex');
+    //   if (token)
+    //     await db.token.destroy({ where: { id: token.id } }, { transaction: t });
 
-      const hash = await bcrypt.hash(resetToken, 10);
+    //   const resetToken = crypto.randomBytes(32).toString('hex');
 
-      const newToken = await db.token.create(
-        {
-          user_id: user.public_id,
-          token: hash,
-        },
-        { transaction: t }
-      );
+    //   const hash = await bcrypt.hash(resetToken, 10);
 
-      return { resetToken, newToken };
-    });
+    //   const newToken = await db.token.create(
+    //     {
+    //       user_id: user.public_id,
+    //       token: hash,
+    //     },
+    //     { transaction: t }
+    //   );
 
-    const mail = await mailSender({
-      from: 'ne.nekonako@gmail.com',
-      to: 'code.yuune@gmail.com',
-      subject: 'Request reset password',
-      text: `https://nekonako.me/resetPassword?token=${data.resetToken}&userId=${user.public_id}`,
-    });
+    //   return { resetToken, newToken };
+    // });
 
-    if (!mail) {
-      return response.error('Failed sending email', res);
-    }
+    // proses send email
+    // const mail = await mailSender({
+    //   from: 'ne.nekonako@gmail.com',
+    //   to: 'code.yuune@gmail.com',
+    //   subject: 'Request reset password',
+    //   text: `https://nekonako.me/resetPassword?token=${data.resetToken}&userId=${user.public_id}`,
+    // });
 
-    return response.success('Send verification code is success', res, {
-      user_id: data.newToken.user_id,
-      token: data.resetToken,
-      link: `https://nekonako.me/resetPassword?token=${data.resetToken}&userId=${user.public_id}`,
-    });
+    // if (!mail) {
+    //   return response.error('Failed sending email', res);
+    // }
+
+    return response.success(
+      'Request forgot password success, please check email!',
+      res,
+      { checkToken },
+      200
+    );
 
   } catch (err) {
     console.log(err);

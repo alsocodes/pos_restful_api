@@ -1,6 +1,6 @@
-const Sub_Menu = (sequelize, Sequelize) =>
+const Access = (sequelize, Sequelize) =>
     sequelize.define(
-        'sub_menus',
+        'access',
         {
             id: {
                 type: Sequelize.INTEGER,
@@ -13,29 +13,15 @@ const Sub_Menu = (sequelize, Sequelize) =>
                 defaultValue: Sequelize.UUIDV4,
                 allowNull: false,
             },
-            menu_id: {
-                type: Sequelize.INTEGER,
-                allowNull: false,
-            },
-
             name: {
                 type: Sequelize.STRING,
                 allowNull: false,
                 unique: true,
             },
-            description: {
-                type: Sequelize.STRING,
-            },
-
-            url: {
-                type: Sequelize.STRING,
-            },
-
-            order: {
+            sub_menu_id: {
                 type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
             },
-
             is_active: {
                 type: Sequelize.BOOLEAN,
                 defaultValue: true
@@ -43,8 +29,12 @@ const Sub_Menu = (sequelize, Sequelize) =>
         },
         {
             sequelize,
-            modelName: 'menus',
+            modelName: 'sub_menus',
+        },
+        {
+            sequelize,
+            modelName: 'role_accesses',
         },
     )
 
-module.exports = Sub_Menu
+module.exports = Access

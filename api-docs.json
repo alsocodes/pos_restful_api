@@ -14,6 +14,8 @@
         "/login": {
             "post": {
                 "tags": [
+                    "tahap_awal",
+                    "app",
                     "auth"
                 ],
                 "summary": "Auth login",
@@ -46,7 +48,11 @@
                                         "result": {
                                             "type": "object",
                                             "properties": {
-                                                "token": {
+                                                "access_token": {
+                                                    "type": "string",
+                                                    "example": "1788fghjkj==21u71-1io!-o/1i12819891ujsq==2w1==mxskxwchwchw-diw9djwkwd281---11w1we202e02%%111nxjhwj"
+                                                },
+                                                "refresh_token": {
                                                     "type": "string",
                                                     "example": "1788fghjkj==21u71-1io!-o/1i12819891ujsq==2w1==mxskxwchwchw-diw9djwkwd281---11w1we202e02%%111nxjhwj"
                                                 },
@@ -73,6 +79,10 @@
                                                             "description": "public_id of role",
                                                             "type": "string",
                                                             "example": "176578798w90w9101901w901w-q1wu19wu19u1"
+                                                        },
+                                                        "role": {
+                                                            "type": "string",
+                                                            "example": "Kasir 002"
                                                         },
                                                         "outlets": {
                                                             "description": "Outlets are owned access by user",
@@ -119,9 +129,9 @@
                                                                 "example": {
                                                                     "name": "create transaction",
                                                                     "menu_id": "1676gjbjdgw-0-1w91w1wh-1iw19uw91u91",
-                                                                    "menu": "transaction",
+                                                                    "menu": "point of sale",
                                                                     "submenu_id": "xx1676gjbjdgw11-0-1w91w1wh-1iw19uw91u91",
-                                                                    "submenu": "point of sale",
+                                                                    "submenu": "transaction",
                                                                     "menu_type": "APP"
                                                                 }
                                                             }
@@ -178,20 +188,347 @@
                 }
             }
         },
-        "/forgot-password": {},
-        "/shift": {
+        "/forgot-password": {
             "post": {
                 "tags": [
-                    "shift"
+                    "tahap_awal",
+                    "app",
+                    "auth"
                 ],
-                "summary": "Create Shift to start pos saling",
-                "description": "Create Shift to start pos saling",
+                "summary": "Request to forgot passowrd",
+                "description": "Request ini akan mengirim link ke email berisi token untuk reset password",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/shift"
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "nullable": false,
+                                        "example": "alsocodes@gmail.com"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull request forgot",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Request forgot password success, please check your email"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/reset-password": {
+            "put": {
+                "tags": [
+                    "tahap_awal",
+                    "app",
+                    "auth"
+                ],
+                "summary": "Request to forgot passowrd",
+                "description": "Request ini akan mengirim link ke email berisi token untuk reset password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "reset_token": {
+                                        "description": "token generated, it contains email/id of user, and token has expired time",
+                                        "type": "string",
+                                        "nullable": false,
+                                        "example": "98trert11--========1w1w19w819w787ghgxshxgwuud0d2-202-u20hnwxjh9220u20d202u02ud2d2hd2"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "nullable": false,
+                                        "example": "passwordkutakganti123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull reset password",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Reset password success"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/change-password": {
+            "put": {
+                "tags": [
+                    "tahap_awal",
+                    "app",
+                    "auth"
+                ],
+                "summary": "Change password",
+                "description": "Change password",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "old_password": {
+                                        "type": "string",
+                                        "nullable": false,
+                                        "example": "passwordlamaharusdicekdulu"
+                                    },
+                                    "new_password": {
+                                        "type": "string",
+                                        "nullable": false,
+                                        "example": "passwordkutakganti123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull change password",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Change password success"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/shift": {
+            "post": {
+                "tags": [
+                    "shift",
+                    "tahap_awal",
+                    "app"
+                ],
+                "summary": "Create Shift to start pos saling",
+                "description": "Create Shift to start pos saling",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "outlet_id": {
+                                        "description": "public_id of outlet",
+                                        "type": "string",
+                                        "nullable": false
+                                    },
+                                    "user_id": {
+                                        "description": "public_id of user",
+                                        "type": "string",
+                                        "nullable": false
+                                    },
+                                    "start_time": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "nullable": false
+                                    },
+                                    "init_cash": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "nullable": false
+                                    }
+                                }
                             }
                         }
                     }
@@ -210,10 +547,6 @@
                                         "message": {
                                             "type": "string",
                                             "example": "Create shift success"
-                                        },
-                                        "result": {
-                                            "type": "object",
-                                            "$ref": "#/components/schemas/shift"
                                         }
                                     }
                                 }
@@ -266,7 +599,9 @@
         "/shift/current/{outlet_id}": {
             "get": {
                 "tags": [
-                    "shift"
+                    "shift",
+                    "tahap_awal",
+                    "app"
                 ],
                 "summary": "Get current shift",
                 "description": "Get current running shift on outlet",
@@ -280,6 +615,11 @@
                             "type": "string"
                         },
                         "example": "2f1f1987-b4c3-4a81-b58f-da54e4171ee5"
+                    }
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
                     }
                 ],
                 "responses": {
@@ -299,7 +639,60 @@
                                         },
                                         "result": {
                                             "type": "object",
-                                            "$ref": "#/components/schemas/shift"
+                                            "properties": {
+                                                "public_id": {
+                                                    "description": "UUID generated",
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "outlet_id": {
+                                                    "description": "public_id of outlet",
+                                                    "type": "string",
+                                                    "nullable": false
+                                                },
+                                                "user_id": {
+                                                    "description": "public_id of user",
+                                                    "type": "string",
+                                                    "nullable": false
+                                                },
+                                                "user": {
+                                                    "description": "name of user(kasir)",
+                                                    "type": "string",
+                                                    "nullable": false
+                                                },
+                                                "start_time": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "nullable": false
+                                                },
+                                                "init_cash": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "nullable": false
+                                                },
+                                                "sys_cash": {
+                                                    "description": "summary of cash of running on system",
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "nullable": true
+                                                },
+                                                "sum_income": {
+                                                    "description": "summary of transaction sale total",
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "nullable": true
+                                                },
+                                                "sold_items": {
+                                                    "description": "summary of items sold in sale_item",
+                                                    "type": "integer",
+                                                    "nullable": true
+                                                },
+                                                "refund_items": {
+                                                    "description": "summary of items refund in sale_item",
+                                                    "type": "integer",
+                                                    "nullable": true
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -348,7 +741,119 @@
                     }
                 }
             },
-            "put": {}
+            "put": {
+                "tags": [
+                    "shift",
+                    "tahap_awal",
+                    "app"
+                ],
+                "summary": "Close current shift",
+                "description": "Close current running shift on outlet",
+                "parameters": [
+                    {
+                        "name": "outlet_id",
+                        "description": "public id of outlet",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "2f1f1987-b4c3-4a81-b58f-da54e4171ee5"
+                    }
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "end_time": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "nullable": true
+                                    },
+                                    "real_cash": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "nullable": true
+                                    },
+                                    "diff_cash": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "nullable": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull close shift",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "cloe shift success"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         },
         "/user": {
             "get": {
@@ -615,45 +1120,7 @@
                                                     "description": "Privileges of access by user",
                                                     "type": "array",
                                                     "items": {
-                                                        "properties": {
-                                                            "name": {
-                                                                "type": "string",
-                                                                "description": "access name",
-                                                                "nullable": false
-                                                            },
-                                                            "menu_id": {
-                                                                "type": "string",
-                                                                "description": "public_id of menu"
-                                                            },
-                                                            "menu": {
-                                                                "type": "string",
-                                                                "description": "name of menu"
-                                                            },
-                                                            "submenu_id": {
-                                                                "type": "string",
-                                                                "description": "public_id of sub menu"
-                                                            },
-                                                            "submenu": {
-                                                                "type": "string",
-                                                                "description": "name of sub menu"
-                                                            },
-                                                            "menu_type": {
-                                                                "description": "web atau app",
-                                                                "enum": [
-                                                                    "WEB",
-                                                                    "APP"
-                                                                ],
-                                                                "type": "string"
-                                                            }
-                                                        },
-                                                        "example": {
-                                                            "name": "create transaction",
-                                                            "menu_id": "1676gjbjdgw-0-1w91w1wh-1iw19uw91u91",
-                                                            "menu": "transaction",
-                                                            "submenu_id": "xx1676gjbjdgw11-0-1w91w1wh-1iw19uw91u91",
-                                                            "submenu": "point of sale",
-                                                            "menu_type": "APP"
-                                                        }
+                                                        "$ref": "#/components/schemas/privileges"
                                                     }
                                                 }
                                             }
@@ -994,7 +1461,9 @@
         "/cat-product": {
             "get": {
                 "tags": [
-                    "cat-product"
+                    "cat-product",
+                    "tahap_awal",
+                    "app"
                 ],
                 "summary": "Get all product category",
                 "description": "Get all product category",
@@ -1423,7 +1892,9 @@
         "/product": {
             "get": {
                 "tags": [
-                    "product"
+                    "product",
+                    "tahap_awal",
+                    "app"
                 ],
                 "summary": "Get all products and variants and prices",
                 "description": "Get all products and variants and prices",
@@ -1629,7 +2100,442 @@
                 }
             }
         },
+        "/product/favorite": {
+            "get": {
+                "tags": [
+                    "product",
+                    "tahap_awal",
+                    "app"
+                ],
+                "summary": "Get all favorite products and variants and prices ",
+                "description": "Get all favorite products and variants and prices",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all products and variants",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "products": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/product"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "product",
+                    "tahap_awal",
+                    "app"
+                ],
+                "summary": "Toggle add product as favorite",
+                "description": "Toggle add product as favorite",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "description": "public_id of product",
+                                        "type": "string",
+                                        "nullable": false
+                                    },
+                                    "is_favorite": {
+                                        "type": "boolean",
+                                        "nullable": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product/cat/{public_id}": {
+            "get": {
+                "tags": [
+                    "product",
+                    "tahap_awal",
+                    "app"
+                ],
+                "summary": "Get all products and variants and prices base category",
+                "description": "Get all products and variants and prices base category",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get all products and variants",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "products": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/product"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/product/{public_id}": {
+            "get": {
+                "tags": [
+                    "product",
+                    "tahap_awal",
+                    "app"
+                ],
+                "summary": "Get single favorite products and variants and prices ",
+                "description": "Get single favorite products and variants and prices",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get single products and variants",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "data success"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "product": {
+                                                    "type": "object",
+                                                    "$ref": "#/components/schemas/product"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "UnAuthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthorized"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Bad request"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Server error"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "put": {
                 "tags": [
                     "product"
@@ -4105,6 +5011,52 @@
                 "type": "array",
                 "items": {
                     "$ref": "#/components/schemas/subMenu"
+                }
+            },
+            "user_privileges": {
+                "type": "object",
+                "properties": {
+                    "public_id": {
+                        "description": "public_id of role_access",
+                        "type": "string",
+                        "example": "1yyuyu=w118w1-w1=w1w1-w1-w1w-1w-1w01"
+                    },
+                    "role_id": {
+                        "description": "public_id of roles",
+                        "type": "string",
+                        "example": "1yyuyu=w118w1-w1=w1w1-w1-w1w-1w-sww1"
+                    },
+                    "role": {
+                        "description": "name of roles",
+                        "type": "string",
+                        "example": "Kasir1"
+                    },
+                    "menu_id": {
+                        "description": "public_id of menu",
+                        "nullable": false,
+                        "example": "1yyuyu=w118w1-w1=w1w1-w1-w1w-1w-1w01zzzz"
+                    },
+                    "menu": {
+                        "description": "Point of sale",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    "submenu_id": {
+                        "description": "public_id of sub menu",
+                        "nullable": false,
+                        "example": "1yyuyu=w118w1-w1=w1w1-w1-w1w-1w-1w01qw1"
+                    },
+                    "submenu": {
+                        "description": "name of sub menu",
+                        "type": "string",
+                        "nullable": false,
+                        "example": "create transaction"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": false,
+                        "example": "create transaction, start add product until charge and print recipts"
+                    }
                 }
             },
             "outlet": {

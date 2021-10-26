@@ -8,10 +8,10 @@ const test = () => {
     }
 }
 module.exports = (app) => {
-    app.post("/auth/login", auth.login);
+    app.post("/login", auth.login);
+    app.post("/forgot-password", auth.forgotPassword);
     // app.get("/auth/get", test);
     //   router.get("/refresh-token", authRefreshToken, auth.refreshToken);
-    //   router.post("/forgot-password", auth.forgotPassword);
     //   router.post("/reset-password", auth.resetPassword);
     //   app.use("/api/v1/auth", router);  
 };
