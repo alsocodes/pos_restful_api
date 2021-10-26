@@ -20,7 +20,8 @@ const Token = (sequelize, Sequelize) =>
             },
             token: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
+                unique: true,
             },
             type: {
                 type: Sequelize.ENUM("forgot-password", "authorization"),

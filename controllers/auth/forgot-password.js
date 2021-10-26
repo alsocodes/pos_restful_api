@@ -25,21 +25,49 @@ exports.forgotPassword = async (req, res) => {
       where: {
         [Op.and]: [
           { user_id: user.id },
+          { is_active: true },
           {
-            [Op.or]:
-              [
-                { is_active: true },
-                db.sequelize.where(db.sequelize.fn('date', db.sequelize.col('expire_at')), '<', db.sequelize.literal('CURRENT_TIMESTAMP')),
-              ]
+            expire_at: {
+              [Op.gt]: new Date((new Date()).getTime())
+            }
           }
+          //db.sequelize.where(db.sequelize.fn('date', db.sequelize.col('expire_at')), '>', db.sequelize.literal('CURRENT_TIMESTAMP')),
+          // {
+          //   [Op.and]:
+          //     [
+
+          //     ]
+          // }
         ]
       }
     })
+    let tempToken;
     if (!checkToken) {
-      let newToken = await db.token.create({
-
+      let token = await bcrypt.hash(crypto.randomBytes(32).toString('hex'), 10)
+      tempToken = await db.token.create({
+        user_id: user.id,
+        type: 'forgot-password',
+        token: token,
+        expire_at: new Date((new Date()).getTime() + 3600000)
       })
+    } else {
+      tempToken = await db.token.update(
+        {
+          expire_at: new Date((new Date()).getTime() + 3600000),
+        },
+        {
+          where: { id: checkToken.id },
+          returning: true,
+        }
+      )
     }
+
+    return response.success(
+      'Request forgot password success, please check email!',
+      res,
+      { checkToken, time: db.sequelize.literal('CURRENT_TIMESTAMP') },
+      200
+    );
     //console.log(checkToken)
 
     // const hash = await bcrypt.hash(resetToken, 10);
@@ -82,12 +110,7 @@ exports.forgotPassword = async (req, res) => {
     //   return response.error('Failed sending email', res);
     // }
 
-    return response.success(
-      'Request forgot password success, please check email!',
-      res,
-      { checkToken },
-      200
-    );
+
 
   } catch (err) {
     console.log(err);
